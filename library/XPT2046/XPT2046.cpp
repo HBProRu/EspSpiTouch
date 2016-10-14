@@ -143,6 +143,7 @@ void XPT2046::getRaw (uint16_t &vi, uint16_t &vj, adc_ref_t mode, uint8_t max_sa
 }
 
 void XPT2046::getPosition (uint16_t &x, uint16_t &y, adc_ref_t mode, uint8_t max_samples) const {
+  SPI.setFrequency(2000000);
   if (!isTouching()) {
     x = y = 0xffff;
     return;

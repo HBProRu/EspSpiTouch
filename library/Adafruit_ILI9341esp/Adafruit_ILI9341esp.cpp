@@ -127,7 +127,7 @@ void Adafruit_ILI9341::spiwrite(uint8_t c) {
 #endif
 }
 
-void Adafruit_ILI9341::spiwriteBytes(uint8_t * data, uint8_t size) {
+void Adafruit_ILI9341::spiwriteBytes(uint8_t * data, uint32_t size) {
 #ifdef ESP8266
     SPI.writeBytes(data, size);
 #else
@@ -256,7 +256,7 @@ void Adafruit_ILI9341::writeCmdData(uint8_t cmd, uint8_t * data, uint8_t size) {
 #ifdef SPI_HAS_TRANSACTION
 
 #ifdef ESP8266
-SPISettings spiSettings = SPISettings(ESP_SPI_FREQ, MSBFIRST, SPI_MODE0);
+SPISettings spiSettings = SPISettings(ESP8266_CLOCK, MSBFIRST, SPI_MODE0);
 #else
 SPISettings spiSettings =  SPISettings(8000000, MSBFIRST, SPI_MODE0);
 #endif
