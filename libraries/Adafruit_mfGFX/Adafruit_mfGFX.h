@@ -71,7 +71,7 @@ class Adafruit_GFX : public Print {
     setFont(uint8_t f);
 
   virtual size_t write(uint8_t);
-  
+
   uint16_t stringWidth(const String &str);
   uint16_t stringWidth(const char* str);
   uint16_t charWidth(uint8_t c);
@@ -117,8 +117,10 @@ class Adafruit_GFX_Button {
   //add-->
   void initButtonwithIcon(Adafruit_GFX *gfx, int16_t x, int16_t y,
    uint8_t w, uint8_t h, uint8_t wi, uint8_t hi, const uint8_t *icon,
-   uint16_t fillcolor, uint16_t iconcolor);
-  void drawButtonwithIcon(boolean inverted = false);
+   uint16_t fillcolor, uint16_t iconcolor, uint16_t fillcolorinvert, uint16_t iconcolorinvert);
+  void InvertFill(boolean invertFill);
+  void InvertIcon(boolean invertIcon);
+  void drawButtonwithIcon(boolean invertFill=false, boolean invertIcon=true);
   //add<--
   boolean contains(int16_t x, int16_t y);
 
@@ -134,7 +136,7 @@ class Adafruit_GFX_Button {
   //add-->
   uint16_t _wi, _hi;
   const uint8_t *_icon;
-  uint16_t _iconcolor;
+  uint16_t _iconcolor, _fillcolorinvert, _iconcolorinvert;
   //add<--
   uint8_t _textsize;
   uint16_t _outlinecolor, _fillcolor, _textcolor;

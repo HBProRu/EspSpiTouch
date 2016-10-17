@@ -42,7 +42,7 @@ void setup() {
   button2.initButton(&tft, 213, 120, 70, 40, ILI9341_DARKCYAN, ILI9341_BLUE, ILI9341_GREENYELLOW, "Clear", 0);
   button2.drawButton();
 
-  buttonIcon_WiFi.initButtonwithIcon(&tft, 121, 198, 72, 72, 48, 48, Icon_WiFi, ILI9341_BLUE, ILI9341_WHITE);
+  buttonIcon_WiFi.initButtonwithIcon(&tft, 121, 198, 72, 72, 48, 48, Icon_WiFi, ILI9341_BLUE, ILI9341_WHITE, 0x055E, ILI9341_DARKGREY);
   buttonIcon_WiFi.drawButtonwithIcon();
 
   //tft.printAt("Hello",0,0,Left);
@@ -84,7 +84,7 @@ void loop() {
     }
 
     if (buttonIcon_WiFi.justPressed()) {
-        buttonIcon_WiFi.drawButtonwithIcon(true); // draw invert!
+        buttonIcon_WiFi.drawButtonwithIcon(true,true); // fill change, icon no
     }
 
     if (buttonIcon_WiFi.justReleased()) {
